@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Share+Tech+Mono');
+$element-length: 70px;
+$border-length: 4px;
+$border-style: 1px solid #000000;
+
+* {
+    box-sizing: border-box;
+    color: #ffffff;
+}
+
+body {
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #C2C2D6;
+}
+
+div, button {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Share Tech Mono', sans-serif;
+    font-size: 20px;
+}
+
+@mixin hover-style {
+    color: #000000;
+    border: 1px solid #ffffff;
+}
+
+.square {
+    width: $element-length;
+    height: $element-length;
+    border: $border-style;
+    &:hover {
+        @include hover-style;
+    }
+}
+
+.wide {
+    width: $element-length * 2;
+    height: $element-length;
+    border: $border-style;
+    &:hover {
+        @include hover-style;
+    }
+}
+
+.tall {
+    width: $element-length;
+    height: $element-length * 2;
+    border: $border-style;
+    &:hover {
+        @include hover-style;
+    }
+}
+
+@mixin screen-settings {
+    width: $element-length * 4;
+    justify-content: flex-end;
+}
+
+#calculator {
+    width: $element-length * 4 + $border-length * 2;
+    height: $element-length * 6 + $border-length * 2;
+    background-color: #000000;
+    margin: 0 auto;
+    margin-top: 15vh;
+    #screen {
+        width: $element-length * 4;
+        height: $element-length;
+        #calculation {
+            @include screen-settings;
+            align-content: end;
+            height: $element-length * 0.4;
+            color: #FFA500;
+            font-size: 16px;
+        }
+        #display {
+            @include screen-settings;
+            height: $element-length * 0.6;
+            font-size: 30px;
+        }
+    }
+    #operators-top {
+        width: $element-length * 4;
+        height: $element-length;
+        border-bottom: none;
+        button {
+            background-color: #666666;
+        }
+        #clear {
+            background-color: #AC3939;
+        }
+    }
+    #block-numbers {
+        width: $element-length * 3;
+        height: $element-length * 4;
+        button {
+            background-color: #4D4D4D;
+        }
+        #one-to-nine {
+            flex-wrap: wrap-reverse;
+        }
+    }
+    #operators-side {
+        width: $element-length;
+        height: $element-length * 4;
+        button {
+            background-color: #666666;
+        }
+        #equals {
+            background-color: #004466;
+        }
+    }
+}
